@@ -9,7 +9,7 @@ npm install axios
 npm install --save gsplat
 ```
 
-### Compiles and hot-reloads for development
+### Start server
 ```
 npm run serve
 ```
