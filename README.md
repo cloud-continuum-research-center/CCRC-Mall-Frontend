@@ -21,5 +21,6 @@ npm install --save gsplat
 
 ### Start server
 ```
+npm init
 npm run serve
 ```
