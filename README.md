@@ -24,3 +24,17 @@ npm install --save gsplat
 npm init
 npm run serve
 ```
+### Edit vue.config.js to connet with back-end server
+```
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        //target: 'back-end server',
+      },
+
+    }
+  }
+}
+```
