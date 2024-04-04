@@ -4,6 +4,15 @@
 ```
 npm install
 npm install -g @vue/cli
+```
+
+## Create Project
+```
+vue create frontend
+```
+
+# Install packages
+```
 npm install vue-router
 npm install vuex --save
 npm install axios
@@ -12,6 +21,5 @@ npm install --save gsplat
 
 ### Start server
 ```
-vue create frontend
 npm run serve
 ```
