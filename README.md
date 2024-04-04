@@ -11,5 +11,6 @@ npm install --save gsplat
 
 ### Start server
 ```
+vue create frontend
 npm run serve
 ```
