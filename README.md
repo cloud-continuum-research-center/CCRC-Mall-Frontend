@@ -2,38 +2,28 @@
 
 ### Project setup
 ```
-npm install
+apt-get update
+apt install nodejs
+apt install npm
+
 npm install -g @vue/cli
+npm install
 ```
 
-### Create Project
-```
-vue create frontend
-```
-
-### Install packages
-```
-npm install vue-router
-npm install vuex --save
-npm install axios
-npm install --save gsplat
-```
 
 ### Start server
 ```
-npm init
 npm run serve
 ```
-### Edit vue.config.js to connet with back-end server
+
+### Edit vue.config.js
 ```
 module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
         //target: 'back-end server',
       },
-
     }
   }
 }
