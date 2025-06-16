@@ -55,7 +55,8 @@ export default {
 
     const discountPrice = (price) => {
       if (!price) return '';
-      return (price * 0.75).toLocaleString("ko-KR") + "원";
+      const discountedPrice = Math.floor(price * 0.75); // 15% 할인 가격 계산 후 버림
+      return discountedPrice.toLocaleString("ko-KR") + "원";
     };
 
 
@@ -65,7 +66,7 @@ export default {
       axios.get(`/api/items/${props.item.id}/multi/`).then(({ data }) => {
         itemImg.value = data.image_path;
       });
-      
+
       /*const imgSrc = `/api/items/${props.item.id}/image`;
       itemImg.value = imgSrc;*/
     });

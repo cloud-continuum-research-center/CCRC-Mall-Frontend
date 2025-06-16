@@ -1,6 +1,6 @@
 <template>
     <div class="rendering">
-        <h2>3D Sample Ver.</h2>
+        <h2>3D Ver.</h2>
         <canvas ref="canvasRef" width="800" height="400" display="block" boxSizing="border-box"></canvas>
     </div>
 </template>
@@ -15,6 +15,7 @@ export default {
         url: String
     },
     setup(props) {
+        console.log("URL:",props.url);
         const canvasRef=ref(null);
         let renderer;
         let controls;
@@ -55,4 +56,5 @@ export default {
     height: 100%;
     
 }
+
 </style>

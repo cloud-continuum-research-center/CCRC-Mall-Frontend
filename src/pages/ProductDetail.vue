@@ -26,7 +26,7 @@
             <div class="product-name">{{ state.product.name }}</div>
           </div>
           <!-- Product Price -->
-          <div class="product-price">\ {{ formatPrice(state.product.price) }}</div>
+          <div class="product-price">\ {{ discountPrice(state.product.price) }}</div>
         </div>
         <!-- Product Info Middle Container -->
         <div class="product-info-middle-container">
@@ -110,9 +110,13 @@
     <div v-if="isPopupVisible" class="popup-overlay">
       <div class="popup-content">
         <button @click="closePopup" class="close-btn">X</button>
-
-        <Rendering :url="modelUrl" v-if="currentCategoryId !== 4" />
-        <Rendering :url="item_3D" v-else />
+        <div class="rendering">
+        <!--  <Rendering :url="modelUrl"/> 
+          <Rendering :url="modelUrl" v-if="currentCategoryId !== 4" />
+          <Rendering :url="item_3D" v-else /> -->
+          <Rendering :url="item_3D"/>
+          <img :src="keyboard" alt="keyboard controls" class="keyboard-icon">
+        </div>
       </div>
     </div>
     <!-- Similar Products Container -->
@@ -157,6 +161,7 @@ export default {
       img_avatar3: "/avatar/avatar3.png",
       img_avatar4: "/avatar/avatar4.png",
       img_share: "/icon/share.png",
+      keyboard: "/icon/keyboard.png",
     };
   },
 
@@ -195,10 +200,13 @@ export default {
       isPopupVisible.value = false;
     };
 
-    const formatPrice = (price) => {
+    const discountPrice = (price) => {
       if (!price) return '';
-      return price.toLocaleString("ko-KR") + "원";
+      const discountedPrice = Math.floor(price * 0.75); // 15% 할인 가격 계산 후 버림
+      return discountedPrice.toLocaleString("ko-KR") + "원";
     };
+
+
     const getCategoryName = (categoryId) => {
       const category = categories.find(cat => cat.id === categoryId);
       return category ? category.name : "Unknown Category";
@@ -212,11 +220,7 @@ export default {
 
 
 
-      const modelUrl = "/point_cloud.ply";
-    
-
-
-
+    const modelUrl = "/point_cloud.ply";
     onMounted(() => {
 
       axios.get(`/api/items/${productId}`)
@@ -237,7 +241,7 @@ export default {
         console.log("itemImg : ", itemImg);
         console.log("item_3D.value : ", item_3D.value);
         console.log("item_3D: ", item_3D);
-
+        
       });
 
       /* const imgSrc = `/api/items/${productId}/image`;
@@ -260,10 +264,14 @@ export default {
     return {
       state, itemImg, item_3D, orderItem, isOrderModalVisible, placeOrder,
       closeOrderModal, modelUrl, openPopup, closePopup, isPopupVisible,
-      formatPrice, getCategoryName, currentTab, showTab,currentCategoryId
+      discountPrice, getCategoryName, currentTab, showTab, currentCategoryId
     };
   },
 };
+
+
+
+
 </script>
 
 <style scoped>

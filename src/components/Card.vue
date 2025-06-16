@@ -41,6 +41,9 @@ export default {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     };
+
+
+
     const getCategoryName = (categoryId) => {
       const category = categories.find(cat => cat.id === categoryId);
       return category ? category.name : "Unknown Category";
@@ -53,7 +56,8 @@ export default {
 
     const discountPrice = (price) => {
       if (!price) return '';
-      return (price * 0.75).toLocaleString("ko-KR") + "원";
+      const discountedPrice = Math.floor(price * 0.75); // 15% 할인 가격 계산 후 버림
+      return discountedPrice.toLocaleString("ko-KR") + "원";
     };
 
     onMounted(() => {
@@ -61,9 +65,9 @@ export default {
         itemImg.value = data.image_path;
       });
 
- /*     const imgSrc = `/api/items/${props.item.id}/image`;
-      itemImg.value = imgSrc;
-    */
+      /*     const imgSrc = `/api/items/${props.item.id}/image`;
+           itemImg.value = imgSrc;
+         */
     });
 
     return { goToProductDetail, getCategoryName, itemImg, formatPrice, discountPrice };
