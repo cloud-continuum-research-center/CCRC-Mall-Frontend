@@ -26,7 +26,11 @@
 import router from "@/scripts/router";
 import { categories } from "@/scripts/categories";
 import { ref, onMounted } from "vue";
+<<<<<<< HEAD
 
+=======
+import axios from "axios";
+>>>>>>> master
 
 export default {
   name: "CustomCard",
@@ -37,10 +41,20 @@ export default {
     const itemImg = ref(null);
 
     const goToProductDetail = () => {
+<<<<<<< HEAD
       router.push({ name: 'ProductDetail', params: { id: props.item.id } }).then(()=>{
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     };
+=======
+      router.push({ name: 'ProductDetail', params: { id: props.item.id } }).then(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    };
+
+
+
+>>>>>>> master
     const getCategoryName = (categoryId) => {
       const category = categories.find(cat => cat.id === categoryId);
       return category ? category.name : "Unknown Category";
@@ -53,6 +67,7 @@ export default {
 
     const discountPrice = (price) => {
       if (!price) return '';
+<<<<<<< HEAD
       return (price*0.75).toLocaleString("ko-KR") + "원";
     };
 
@@ -62,6 +77,23 @@ export default {
     });
 
     return { goToProductDetail, getCategoryName, itemImg, formatPrice,discountPrice };
+=======
+      const discountedPrice = Math.floor(price * 0.75); // 15% 할인 가격 계산 후 버림
+      return discountedPrice.toLocaleString("ko-KR") + "원";
+    };
+
+    onMounted(() => {
+      axios.get(`/api/items/${props.item.id}/multi/`).then(({ data }) => {
+        itemImg.value = data.image_path;
+      });
+
+      /*     const imgSrc = `/api/items/${props.item.id}/image`;
+           itemImg.value = imgSrc;
+         */
+    });
+
+    return { goToProductDetail, getCategoryName, itemImg, formatPrice, discountPrice };
+>>>>>>> master
   }
 }
 </script>

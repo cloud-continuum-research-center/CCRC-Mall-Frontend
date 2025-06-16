@@ -12,8 +12,13 @@
         <p class="category">카테고리 : {{ getCategoryName(item.category_id) }}</p>
       </div>
       <div class="price">
+<<<<<<< HEAD
         <div class="discounted-price">{{discountPrice(item.price)}}</div>
         <div class="original-price">{{formatPrice(item.price)}}</div>
+=======
+        <div class="discounted-price">{{ discountPrice(item.price) }}</div>
+        <div class="original-price">{{ formatPrice(item.price) }}</div>
+>>>>>>> master
       </div>
     </div>
   </div>
@@ -23,6 +28,10 @@
 import router from "@/scripts/router";
 import { categories } from "@/scripts/categories";
 import { ref, onMounted } from "vue";
+<<<<<<< HEAD
+=======
+import axios from "axios";
+>>>>>>> master
 
 
 export default {
@@ -54,12 +63,29 @@ export default {
 
     const discountPrice = (price) => {
       if (!price) return '';
+<<<<<<< HEAD
       return (price*0.75).toLocaleString("ko-KR") + "원";
     };
 
     onMounted(() => {
       const imgSrc = `/api/items/${props.item.id}/image`;
       itemImg.value = imgSrc;
+=======
+      const discountedPrice = Math.floor(price * 0.75); // 15% 할인 가격 계산 후 버림
+      return discountedPrice.toLocaleString("ko-KR") + "원";
+    };
+
+
+
+
+    onMounted(() => {
+      axios.get(`/api/items/${props.item.id}/multi/`).then(({ data }) => {
+        itemImg.value = data.image_path;
+      });
+
+      /*const imgSrc = `/api/items/${props.item.id}/image`;
+      itemImg.value = imgSrc;*/
+>>>>>>> master
     });
 
 

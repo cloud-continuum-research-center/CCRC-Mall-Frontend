@@ -12,7 +12,11 @@
               <div class="banner_overlay"></div>
               <div class="banner_content">
 
+<<<<<<< HEAD
                 <div class="banner_title">AI-based<br />3D view of<br />Furniture</div>
+=======
+                <div class="banner_title">AI기반<br />3D<br />쇼핑몰</div>
+>>>>>>> master
                 <div class="banner_description">Our furniture is made from selected and best quality materials that are
                   suitable for your dream home</div>
                 <div class="banner_button-container">
@@ -105,7 +109,11 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <button @click="goToTest" class="test">테스트 페이지</button>
+=======
+<!--  <button @click="goToTest" class="test">테스트 페이지</button>-->
+>>>>>>> master
 
 
 

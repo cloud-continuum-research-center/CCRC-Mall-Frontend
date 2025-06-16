@@ -1,6 +1,10 @@
 <template>
     <div class="rendering">
+<<<<<<< HEAD
         <h2>3D Sample Ver.</h2>
+=======
+        <h2>3D Ver.</h2>
+>>>>>>> master
         <canvas ref="canvasRef" width="800" height="400" display="block" boxSizing="border-box"></canvas>
     </div>
 </template>
@@ -15,6 +19,10 @@ export default {
         url: String
     },
     setup(props) {
+<<<<<<< HEAD
+=======
+        console.log("URL:",props.url);
+>>>>>>> master
         const canvasRef=ref(null);
         let renderer;
         let controls;
@@ -55,4 +63,8 @@ export default {
     height: 100%;
     
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 </style>

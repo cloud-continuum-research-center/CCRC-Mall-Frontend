@@ -4,6 +4,10 @@ import Login from "@/pages/Login.vue";
 import Test from "@/pages/Test.vue";
 import ProductDetail from "@/pages/ProductDetail.vue";
 import ItemRegistration from "@/pages/ItemRegistration.vue";
+<<<<<<< HEAD
+=======
+import Loading from "@/pages/Loading.vue";
+>>>>>>> master
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -14,6 +18,10 @@ const routes = [
     { path: '/new_item', component: ItemRegistration },
     { path: '/product_detail/:id', name: 'ProductDetail', component: ProductDetail },
     { path: '/test', component: Test },
+<<<<<<< HEAD
+=======
+    { path: '/loading', component: Loading, name: 'Loading' },
+>>>>>>> master
 ]
 
 const router = createRouter({

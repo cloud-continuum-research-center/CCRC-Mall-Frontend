@@ -6,7 +6,10 @@ apt-get update
 apt install nodejs
 apt install npm
 
+<<<<<<< HEAD
 npm install -g @vue/cli
+=======
+>>>>>>> master
 npm install
 ```
 

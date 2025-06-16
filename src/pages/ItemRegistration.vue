@@ -20,14 +20,20 @@
 
             <!-- 비디오 업로드 -->
             <div class="form-group">
+<<<<<<< HEAD
                 
+=======
+>>>>>>> master
                 <label for="itemVideo" class="form-label">Upload Video</label>
                 <input type="file" id="itemVideo" @change="handleVideoUpload" class="form-control" required />
                 <video v-if="previewVideo" :src="previewVideo" alt="Preview" class="preview-video" controls></video>
                 <span v-if="previewVideo">[미리보기]</span>
             </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
             <div class="form-group">
                 <label for="itemDescription" class="form-label">Product Description</label>
                 <textarea id="itemDescription" v-model="formData.description" placeholder="상품 설명" class="form-control" required></textarea>
@@ -44,6 +50,10 @@
                     <option value="1">책상</option>
                     <option value="2">침대</option>
                     <option value="3">의자</option>
+<<<<<<< HEAD
+=======
+                    <option value="4">기타</option>
+>>>>>>> master
                 </select>
             </div>
 
@@ -55,6 +65,10 @@
 <script>
 import axios from "axios";
 import router from "@/scripts/router";
+<<<<<<< HEAD
+=======
+//import store from "@/store"; // Vuex store 가져오기
+>>>>>>> master
 
 export default {
     data() {
@@ -103,8 +117,23 @@ export default {
 
             axios.post("/api/items/", formData).then((response) => {
                 console.log("상품이 성공적으로 등록되었습니다:", response.data);
+<<<<<<< HEAD
                 window.alert('상품이 성공적으로 등록되었습니다.');
                 router.push({ path: '/' });
+=======
+                
+                // 비디오 UUID를 Vuex store에 저장
+//                const videoUuid = response.data.video_uuid;
+  //              store.commit('setVideoUuid', videoUuid);
+                
+                
+                window.alert('상품이 성공적으로 등록되었습니다.');
+
+
+
+                router.push({ path: '/loading' });
+
+>>>>>>> master
             }).catch((error) => {
                 console.error("상품 등록에 실패했습니다:", error);
             });
